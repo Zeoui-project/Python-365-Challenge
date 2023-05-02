@@ -1,0 +1,15 @@
+i am using these material as a project in Japan and i would like to know each of the part prices range in yen and where can i buy the link to the product. These are the materials:
+1. Arduino Mega 2560
+2. Rotary Encoder with knob
+3. Throttle Brake Pedal
+4. DC motor and wheel
+5. IC MIC MAX 7219
+6. Motor Driver l298n
+7. Seven segment 2 inch
+8. LCD 20x4
+9. LED Green
+10. LED Red
+11. LED Strip 100x3 cm
+12. LCD Strip Graph
+13. Solenoid Push Pull
+14. Cordboard
