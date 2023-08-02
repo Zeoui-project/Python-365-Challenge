@@ -67,3 +67,13 @@ class SolarSystemBody:
             markersize=self.display_size + self.position[0] / 30,
             color=self.colour
         )
+    def accelerate_due_to_gravity(self, other):
+        distance = Vector(*other.position) - Vector(*self.position)
+        distance_mag = distance.get_magnitude()
+        force_mag = self.mass * other.mass / (distance_mag ** 2)
+        force = distance.normalize() * force_mag
+        reverse = 1
+        for body in self, other:
+            acceleration = force / body.mass
+            body.velocity += acceleration * reverse
+            reverse = -1
