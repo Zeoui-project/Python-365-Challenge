@@ -64,6 +64,6 @@ class SolarSystemBody:
         self.solar_system.ax.plot(
             *self.position,
             marker="o",
-            markersize=self.display_size,
+            markersize=self.display_size + self.position[0] / 30,
             color=self.colour
         )
