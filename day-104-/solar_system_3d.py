@@ -1,5 +1,6 @@
 # solar_system_3d.py
 
+import itertools
 import math
 import matplotlib.pyplot as plt
 
@@ -83,3 +84,25 @@ class SolarSystemBody:
             acceleration = force / body.mass
             body.velocity += acceleration * reverse
             reverse = -1
+
+class Sun(SolarSystemBody):
+    def __init__(
+        self,
+        solar_system,
+        mass=10_000,
+        position=(0, 0, 0),
+        velocity=(0, 0, 0),
+    ):
+        super(Sun, self).__init__(solar_system, mass, position, velocity)
+        self.colour = "yellow"
+class Planet(SolarSystemBody):
+    colours = itertools.cycle([(1, 0, 0), (0, 1, 0), (0, 0, 1)])
+    def __init__(
+        self,
+        solar_system,
+        mass=10,
+        position=(0, 0, 0),
+        velocity=(0, 0, 0),
+    ):
+        super(Planet, self).__init__(solar_system, mass, position, velocity)
+        self.colour = next(Planet.colours)
