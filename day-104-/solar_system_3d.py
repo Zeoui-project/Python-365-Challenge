@@ -17,6 +17,7 @@ class SolarSystem:
             figsize=(self.size / 50, self.size / 50),
         )
         self.fig.tight_layout()
+        self.ax.view_init(0, 0)
 
     def add_body(self, body):
         self.bodies.append(body)
