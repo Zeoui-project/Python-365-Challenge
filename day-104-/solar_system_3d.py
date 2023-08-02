@@ -32,6 +32,7 @@ class SolarSystem:
         self.ax.set_xlim((-self.size / 2, self.size / 2))
         self.ax.set_ylim((-self.size / 2, self.size / 2))
         self.ax.set_zlim((-self.size / 2, self.size / 2))
+        self.ax.axis(False)
         plt.pause(0.001)
         self.ax.clear()
         
