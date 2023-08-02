@@ -19,7 +19,11 @@ class SolarSystem:
             figsize=(self.size / 50, self.size / 50),
         )
         self.fig.tight_layout()
-        self.ax.view_init(0, 0)
+        if self.projection_2d:
+            self.ax.view_init(10, 0)
+        else:
+            self.ax.view_init(0, 0)
+
 
     def add_body(self, body):
         self.bodies.append(body)
@@ -34,6 +38,12 @@ class SolarSystem:
         self.ax.set_ylim((-self.size / 2, self.size / 2))
         self.ax.set_zlim((-self.size / 2, self.size / 2))
         self.ax.axis(False)
+        if self.projection_2d:
+            self.ax.xaxis.set_ticklabels([])
+            self.ax.yaxis.set_ticklabels([])
+            self.ax.zaxis.set_ticklabels([])
+        else:
+            self.ax.axis(False)
         plt.pause(0.001)
         self.ax.clear()
         
@@ -82,6 +92,16 @@ class SolarSystemBody:
             markersize=self.display_size + self.position[0] / 30,
             color=self.colour
         )
+        if self.solar_system.projection_2d:
+            self.solar_system.ax.plot(
+                self.position[0],
+                self.position[1],
+                -self.solar_system.size / 2,
+                marker="o",
+                markersize=self.display_size / 2,
+                color=(.5, .5, .5),
+            )
+
     def accelerate_due_to_gravity(self, other):
         distance = Vector(*other.position) - Vector(*self.position)
         distance_mag = distance.get_magnitude()
