@@ -22,8 +22,24 @@ class Vector:
         else:
             raise IndexError("There are only three elements in the vector")
 
+    def __add__(self, other):
+        return Vector(
+            self.x + other.x,
+            self.y + other.y,
+            self.z + other.z,
+        )
+
+    def __sub__(self, other):
+        return Vector(
+            self.x - other.x,
+            self.y - other.y,
+            self.z - other.z,
+        )
 
 # Testing Vector Class - TO BE DELETED
-test = Vector(3, 5, 9)
+test = Vector(3, 5, 9) + Vector(1, -3, 2)
+print(test)
 
-print(test[0])
+
+test = Vector(3, 5, 9) - Vector(1, -3, 2)
+print(test)
