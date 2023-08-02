@@ -33,6 +33,12 @@ class SolarSystem:
         self.ax.set_zlim((-self.size / 2, self.size / 2))
         plt.pause(0.001)
         self.ax.clear()
+        
+    def calculate_all_body_interactions(self):
+        bodies_copy = self.bodies.copy()
+        for idx, first in enumerate(bodies_copy):
+            for second in bodies_copy[idx + 1:]:
+                first.accelerate_due_to_gravity(second)
 
 class SolarSystemBody:
     min_display_size = 10
