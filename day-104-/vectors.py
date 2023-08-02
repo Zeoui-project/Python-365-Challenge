@@ -1,5 +1,7 @@
 # vectors.py
 
+import math
+
 class Vector:
     def __init__(self, x=0, y=0, z=0):
         self.x = x
@@ -62,6 +64,19 @@ class Vector:
         else:
             raise TypeError("operand must be int or float")
 
+    def get_magnitude(self):
+        return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)
+
+    def normalize(self):
+        magnitude = self.get_magnitude()
+        return Vector(
+            self.x / magnitude,
+            self.y / magnitude,
+            self.z / magnitude,
+        )
+
 # Testing Vector Class - TO BE DELETED
-test = Vector(3, 6, 9) / 3
-print(test)
+test = Vector(3, 6, 9)
+print(test.get_magnitude())
+print(test.normalize())
+print(test.normalize().get_magnitude())
