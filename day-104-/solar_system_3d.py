@@ -7,8 +7,9 @@ import matplotlib.pyplot as plt
 from vectors import Vector
 
 class SolarSystem:
-    def __init__(self, size):
+    def __init__(self, size, projection_2d=False):
         self.size = size
+        self.projection_2d = projection_2d
         self.bodies = []
 
         self.fig, self.ax = plt.subplots(
