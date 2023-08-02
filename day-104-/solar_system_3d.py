@@ -40,6 +40,12 @@ class SolarSystem:
         for idx, first in enumerate(bodies_copy):
             for second in bodies_copy[idx + 1:]:
                 first.accelerate_due_to_gravity(second)
+    
+    def update_all(self):
+        self.bodies.sort(key=lambda item: item.position[0])
+        for body in self.bodies:
+            body.move()
+            body.draw()
 
 class SolarSystemBody:
     min_display_size = 10
